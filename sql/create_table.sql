@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS {{ params.table_name }}(custom_id integer NOT NULL, timestamp TIMESTAMP NOT NULL, user_id VARCHAR (50) NOT NULL)
