@@ -10,6 +10,7 @@ import requests
 from pandas import json_normalize
 import pandas as pd
 from sqlalchemy import create_engine
+from datetime import timedelta
 
 local_tz = pendulum.timezone("US/Pacific")
 db_name = "userdata"
@@ -33,7 +34,7 @@ with DAG('LOAD_NY_COVID_DLY', default_args=default_args, catchup=False, template
         return context
 
     getdate= getTodayDate()
-    @dag.task
+    @dag.task(default_args = {'retries': '2','retry_delay': timedelta(minutes=30)})
     def get_ny_covid_data_by_date(test_date):
         """
         Query New York health api to get daily Covid testing data
@@ -43,10 +44,12 @@ with DAG('LOAD_NY_COVID_DLY', default_args=default_args, catchup=False, template
         """
         json_data=""
         #param_date = test_date["testdate"]
-        #parameters = {'test_date': param_date + 'T00:00:00.000'}
+        #parameters = {'test_date': '2020-02-09'}
         result = requests.get("https://health.data.ny.gov/resource/xdss-u53e.json?", test_date)
         if result.status_code == 200:
             print("Call to api successful")
+            if not result.json():
+                raise ValueError("Data not available for "+test_date['test_date']+" yet. Please try after sometime")
             json_data = result.json()
             return json_data
         else:
