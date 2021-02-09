@@ -16,7 +16,10 @@ default_args = {
     'start_date': days_ago(1)
 }
 NY_API = "https://health.data.ny.gov/resource/xdss-u53e.json?$limit=50000&$order=:id"
-dbURI = PostgresHook(postgres_conn_id='postgres_new').get_uri()
+db_name = "userdata"
+result = PostgresHook(postgres_conn_id='postgres_new').get_uri().split("/")
+result[3] = db_name
+dbURI = "/".join(result)
 
 nycounties = ['Albany', 'Allegany', 'Bronx', 'Broome', 'Cattaraugus', 'Cayuga', 'Chautauqua', 'Chemung', 'Chenango',
               'Clinton', 'Columbia', 'Cortland', 'Delaware', 'Dutchess', 'Erie', 'Essex', 'Franklin', 'Fulton',
