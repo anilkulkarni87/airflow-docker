@@ -88,6 +88,7 @@ http://localhost:8080
     *   To create all the county tables
 *   Task Flow Api
     *   Using Task Flow with classic operators.
+    *   Adding task retires with Task Flow style dag definition
 *   Airflow Macros
     *   To get the execution date in the Daily DAG.
     * Used in conjunction with TaskFlow API.
