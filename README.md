@@ -47,7 +47,7 @@ Directories I am mounting:
 - ./sql - for Sql files. We can leveraje jinja templating in our queries. Refer the sample Dag.
 
 ## Data Engineering Projects <a name = "projects"></a>
-- Project 1 -> [Get Covid testing data](../COVID_NY.MD)
+- Project 1 -> [Get Covid testing data](../../COVID_NY.MD)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
