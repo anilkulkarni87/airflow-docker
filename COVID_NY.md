@@ -13,6 +13,7 @@
 - [Usage](#usage)
 - [Airflow DAG details](#dag)
 - [Airflow and other Concepts Used](#concepts)
+- [Airflow Unit Tests](#unittest)
 - [TODO](#Todo)
 - [Authors](#authors)
 
@@ -94,6 +95,16 @@ http://localhost:8080
     * Used in conjunction with TaskFlow API.
 *   Postgres psql function
     *   To populate child tables when master table is populated. 
+
+## Airflow and other Concepts Used <a name = "unittest"></a>
+Unit test for airflow dags has been defined and present in the test folder. This folder is also mapped to the docker containers inside the docker-compose.yaml file.
+Follow below steps to execute unittests after the docker containers are running:
+```
+./airflow bash
+
+python -m unittest discover -v
+```
+
 
 ## ✍️ ToDo <a name = "Todo"></a> 
 *   The Objective can be achieved by just one daily dag and using backfill and catchup.
