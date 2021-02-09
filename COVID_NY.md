@@ -12,7 +12,7 @@
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Airflow DAG details](#dag)
-- [Airflow Concepts Used](#concepts)
+- [Airflow and other Concepts Used](#concepts)
 - [TODO](#Todo)
 - [Authors](#authors)
 
@@ -82,7 +82,7 @@ http://localhost:8080
     *   Calls the NY Helath API with that date and saves result in json.
     *   Loads this data to Postgres table.
 
-## Airflow Concepts Used <a name = "concepts"></a>
+## Airflow and other Concepts Used <a name = "concepts"></a>
 
 *   TaskGroups
     *   To create all the county tables
@@ -90,12 +90,16 @@ http://localhost:8080
     *   Using Task Flow with classic operators.
 *   Airflow Macros
     *   To get the execution date in the Daily DAG.
+    * Used in conjunction with TaskFlow API.
+*   Postgres psql function
+    *   To populate child tables when master table is populated. 
 
 ## ✍️ ToDo <a name = "Todo"></a> 
 *   The Objective can be achieved by just one daily dag and using backfill and catchup.
 *   Explore the new rest Api of Airflow
     *   Maybe implement rest api test framework using RestAssured :)
 *   Implement Audit jobs or explore greatexpectations operator.
+*   Implement Unit testing for the Dags and operators.
 
 
 ## ✍️ Authors <a name = "authors"></a>
