@@ -18,6 +18,7 @@
 ## 📝 Table of Contents
 
 - [About](#about)
+- [Data Engineering Projects](#project)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Built Using](#built_using)
@@ -44,6 +45,9 @@ Directories I am mounting:
 - ./logs
 - ./plugins
 - ./sql - for Sql files. We can leveraje jinja templating in our queries. Refer the sample Dag.
+
+## Data Engineering Porjects <a name = "projects"></a>
+- Project 1 -> [Get Covid testing data](COVID_NY.MD)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
