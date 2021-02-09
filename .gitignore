@@ -1,4 +1,4 @@
 dags/__pycache__
-./logs/*
 dags/testdag.py
 test/__pycache__
+logs

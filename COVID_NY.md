@@ -95,6 +95,7 @@ http://localhost:8080
     * Used in conjunction with TaskFlow API.
 *   Postgres psql function
     *   To populate child tables when master table is populated. 
+*   Airflow Unit Tests
 
 ## Airflow UnitTests <a name = "unittest"></a>
 Unit test for airflow dags has been defined and present in the test folder. This folder is also mapped to the docker containers inside the docker-compose.yaml file.
