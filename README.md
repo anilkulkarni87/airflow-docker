@@ -116,6 +116,12 @@ Now you can create new dags and place them in your local system and can see it c
 
   connect to postgres and create new database with name 'userdata'
 
+  ```
+  docker exec -it airflowdocker_postgres_1 /bin/bash
+  psql -U airflow
+  create database userdata;
+  ```
+
   Turn on Dag: PostgreOperatorTest_Dag
   ```
 
