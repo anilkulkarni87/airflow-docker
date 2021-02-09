@@ -114,7 +114,7 @@ Now you can create new dags and place them in your local system and can see it c
   Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection. 
 
   ```
-  ./airflow.sh bash 
+  ./airflow.sh bash
 
   airflow connections add 'postgres_new' --conn-uri 'postgres://airflow:airflow@postgres:5432/airflow'
 
