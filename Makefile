@@ -1,5 +1,5 @@
 setup:
-	docker-compose up aiflow-init
+	docker-compose up airflow-init
 	sleep 240
 	docker-compose up
 
