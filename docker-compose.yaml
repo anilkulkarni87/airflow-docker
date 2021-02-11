@@ -119,6 +119,7 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    container_name: airflow-worker
     restart: always
 
   # airflow-init-db:
