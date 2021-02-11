@@ -62,7 +62,7 @@ x-airflow-common:
     - ./plugins:/opt/airflow/plugins
     - ./sql:/opt/airflow/sql
     - ./test:/opt/airflow/test
-  user: "${AIRFLOW_UID:-1000}:${AIRFLOW_GID:-0}"
+  user: "${AIRFLOW_UID}:${AIRFLOW_GID}"
   depends_on:
     redis:
       condition: service_healthy
