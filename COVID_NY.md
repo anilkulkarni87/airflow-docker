@@ -43,6 +43,7 @@ git clone
 - Start docker build
 
 ```
+docker-compose airflow-init
 docker-compose up --detached
 ```
 
@@ -59,6 +60,8 @@ http://localhost:8080
 ```
 
 - Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection. 
+
+        Update: Ignore this step as this has now been accommodated in the new docker compose yaml
 
 
 ```
@@ -96,6 +99,7 @@ http://localhost:8080
 *   Postgres psql function
     *   To populate child tables when master table is populated. 
 *   Airflow Unit Tests
+*   Create multiple databases in postgres as part of docker compose.
 
 ## Airflow UnitTests <a name = "unittest"></a>
 Unit test for airflow dags has been defined and present in the test folder. This folder is also mapped to the docker containers inside the docker-compose.yaml file.

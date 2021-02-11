@@ -29,35 +29,49 @@ dbURI = "/".join(result)
 with DAG('LOAD_NY_COVID_DLY', default_args=default_args, catchup=False, template_searchpath='/opt/airflow/') as dag:
     @dag.task
     def getTodayDate():
-        context = {"test_date": get_current_context()["ds"]};
+        """
+        gets the current context of Airflow task
+
+        """
+        context = {"test_date": get_current_context()["ds"]}
         print(context)
         return context
 
-    getdate= getTodayDate()
-    @dag.task(default_args = {'retries': '2','retry_delay': timedelta(minutes=30)})
+    getdate = getTodayDate()
+
+    @dag.task(default_args={'retries': '2', 'retry_delay': timedelta(minutes=30)})
     def get_ny_covid_data_by_date(test_date):
         """
         Query New York health api to get daily Covid testing data
         :param test_date: Pass a json string ex: {'testdate': '2021-02-07'}
         :return:
-        Return a pandas Dataframe.
+        Return a json data.
         """
-        json_data=""
+        json_data = ""
         #param_date = test_date["testdate"]
         #parameters = {'test_date': '2020-02-09'}
-        result = requests.get("https://health.data.ny.gov/resource/xdss-u53e.json?", test_date)
+        result = requests.get(
+            "https://health.data.ny.gov/resource/xdss-u53e.json?", test_date)
         if result.status_code == 200:
             print("Call to api successful")
             if not result.json():
-                raise ValueError("Data not available for "+test_date['test_date']+" yet. Please try after sometime")
+                raise ValueError(
+                    "Data not available for "+test_date['test_date']+" yet. Please try after sometime")
             json_data = result.json()
             return json_data
         else:
             print("Error in Api Call")
         return json_data
-    
+
     @dag.task
     def loaddata(json_data: str):
+        """
+        load json data
+
+        Args:
+            json_data (str) :
+
+        """
         dataframe: DataFrame = json_normalize(json_data)
         print(dataframe.head(2))
         engine = create_engine(dbURI)
@@ -66,10 +80,7 @@ with DAG('LOAD_NY_COVID_DLY', default_args=default_args, catchup=False, template
                                   "cumulative_number_of_positives": "cummpositives",
                                   "total_number_of_tests": "totaltests",
                                   "cumulative_number_of_tests": "cummtests"}, inplace=True)
-        dataframe.to_sql("nymaster", engine, index=False, if_exists='append', schema='public')
-    
+        dataframe.to_sql("nymaster", engine, index=False,
+                         if_exists='append', schema='public')
+
     loaddata(get_ny_covid_data_by_date(getdate))
-
-
-
-

@@ -2,3 +2,4 @@ dags/__pycache__
 dags/testdag.py
 test/__pycache__
 logs
+.vscode

@@ -24,6 +24,7 @@
 - [Built Using](#built_using)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
+- [Cleanup](#cleanup)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -81,6 +82,8 @@ git clone
 Start docker build
 
 ```
+docker-compose up airflow-init
+
 docker-compose up --detached
 ```
 
@@ -111,7 +114,9 @@ Another #TODO
 Now you can create new dags and place them in your local system and can see it coming live on web UI. Refer the sample dag in the repo. 
 
   ### Important : 
-  Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection. 
+  Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection.
+
+    Update: This is now taken care of the in the updated Docker compose file. The connection and the new database are created
 
   ```
   ./airflow.sh bash
@@ -145,3 +150,9 @@ Now you can create new dags and place them in your local system and can see it c
 
 - [Apache Airflow](#https://github.com/apache/airflow/blob/master/docs/apache-airflow/start/docker-compose.yaml)
 - Inspiration is the Airflow Community
+
+## Cleanup <a name = "cleanup"></a>
+
+```
+docker-compose down --volumes --rmi all
+```
