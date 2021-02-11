@@ -24,7 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+        
+      # Runs a single command using the runners shell
+      - name: Setup user
+        run: export AIRFLOW_UID=1001
       # Runs a single command using the runners shell
       - name: Create Airflow environment
         run: make setup
