@@ -28,12 +28,16 @@ jobs:
       # Runs a single command using the runners shell
       - name: Setup user
         run: export AIRFLOW_UID=1001
+      - name: Dump UID & GID
+        run: |
+          echo User ID [UID]: $(id -u)
+          echo Group ID [GID]: $(id -g)
       # Runs a single command using the runners shell
-      - name: Create Airflow environment
-        run: make setup
+#       - name: Create Airflow environment
+#         run: make setup
 
-      # Runs a set of commands using the runners shell
-      - name: Execute Airflow Tests
-        run: make testing
-          echo Add other actions to build,
-          echo test, and deploy your project.
+#       # Runs a set of commands using the runners shell
+#       - name: Execute Airflow Tests
+#         run: make testing
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
