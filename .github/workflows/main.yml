@@ -25,13 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
-      # Runs a single command using the runners shell
-      - name: Setup user
-        run: export AIRFLOW_UID=1001
       - name: Dump UID & GID
         run: |
           echo User ID [UID]: $(id -u)
           echo Group ID [GID]: $(id -g)
+      - name: Setup Env file
+        run: |
+          export AIRFLOW_UID=1001
+          export AIRFLOW_GID=116
+      - name: Setup Env file
+        run: echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=$(id -g)" > .env
+      - name: Print Env file
+        run: cat .env
       # Runs a single command using the runners shell
 #       - name: Create Airflow environment
 #         run: make setup
