@@ -52,6 +52,10 @@ jobs:
       
       - name: create directories
         run: whoami
+
+      - name: create directories
+        run: rm -f .env
+
      # Runs a single command using the runners shell
       - name: Create Airflow environment
         run: make setup
