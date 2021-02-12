@@ -56,6 +56,17 @@ jobs:
       - name: create directories
         run: rm -f .env
 
+      - name: Change Permission
+        run: |
+          sudo chmod u=rwx,g=rwx,o=rwx ./dags
+          sudo chmod u=rwx,g=rwx,o=rwx ./logs
+          sudo chmod u=rwx,g=rwx,o=rwx ./sql
+          sudo chmod u=rwx,g=rwx,o=rwx ./test
+          sudo chmod u=rwx,g=rwx,o=rwx ./pg-init-scripts
+
+      - name: Print ls -l
+        run: ls -l
+
      # Runs a single command using the runners shell
       - name: Create Airflow environment
         run: make setup
