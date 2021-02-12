@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Execute Airflow Unit Tests
 
 # Controls when the action will run. 
 on:
@@ -24,36 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
-      - name: Dump UID & GID
-        run: |
-          echo User ID [UID]: $(id -u)
-          echo Group ID [GID]: $(id -g)
-      - name: Setup Users
-        run: |
-          export AIRFLOW_UID=1001
-          export AIRFLOW_GID=116
-
-      - name: Setup Env file
-        run: echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=$(id -g)" > .env
-
-      - name: Print User id
-        run: |
-          echo $(AIRFLOW_UID)
-          echo $(AIRFLOW_GID)  
-      - name: Print Env file
-        run: cat .env
-
-      - name: See directories
-        run: ls -a
 
       - name: create directories
         run: mkdir ./logs ./plugins
-      
-      - name: create directories
-        run: whoami
 
-      - name: create directories
+      - name: Remove .env file
         run: rm -f .env
 
       - name: Change Permission
@@ -64,9 +39,6 @@ jobs:
           sudo chmod u=rwx,g=rwx,o=rwx ./test
           sudo chmod u=rwx,g=rwx,o=rwx ./pg-init-scripts
 
-      - name: Print ls -l
-        run: ls -l
-
      # Runs a single command using the runners shell
       - name: Create Airflow environment
         run: make setup
@@ -74,5 +46,3 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Execute Airflow Tests
         run: make testing
-          echo Add other actions to build,
-          echo test, and deploy your project.

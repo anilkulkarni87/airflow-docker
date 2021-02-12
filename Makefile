@@ -1,10 +1,11 @@
 setup:
-	docker-compose up airflow-init
+	docker-compose up -f docker-compose-githubworkflow.yaml airflow-init
+	docker-compose up -f docker-compose-githubworkflow.yaml -d
 	sleep 240
-	docker-compose up
 
 down:
 	docker-compose down
 
 testing:
+	docker ps -a
 	docker exec airflow-worker python -m unittest discover -v
