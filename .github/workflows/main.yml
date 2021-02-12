@@ -49,7 +49,10 @@ jobs:
 
       - name: create directories
         run: mkdir ./logs ./plugins
-      # Runs a single command using the runners shell
+      
+      - name: create directories
+        run: whoami
+      Runs a single command using the runners shell
       - name: Create Airflow environment
         run: make setup
 
