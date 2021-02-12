@@ -6,6 +6,7 @@
 <h3 align="center">Apache Airflow 2.0 with Docker on Windows 10 | WSL2</h3>
 
 <div align="center">
+![Execute Airflow Unit Tests](https://github.com/anilkulkarni87/airflow-docker/workflows/Execute%20Airflow%20Unit%20Tests/badge.svg?branch=master)
 
 </div>
 
