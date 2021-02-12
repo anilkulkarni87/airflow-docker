@@ -1,6 +1,6 @@
 setup:
-	docker-compose up -f docker-compose-githubworkflow.yaml airflow-init
-	docker-compose up -f docker-compose-githubworkflow.yaml -d
+	docker-compose -f docker-compose-githubworkflow.yaml up airflow-init
+	docker-compose -f docker-compose-githubworkflow.yaml up -d
 	sleep 240
 
 down:
