@@ -7,6 +7,14 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
+    paths: 
+      - 'dags/**'
+      - 'pg-init-scripts/**'
+      - 'sql/**'
+      - 'test/**'
+      - '!README.md'
+      - '!COVID_NY.md'
+
   pull_request:
     branches: [ master ]
 
