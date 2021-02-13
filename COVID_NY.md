@@ -43,8 +43,8 @@ git clone
 - Start docker build
 
 ```
-docker-compose airflow-init
-docker-compose up --detached
+docker-compose -f docker-compose.yaml up airflow-init
+docker-compose -f docker-compose.yaml up
 ```
 
 - Keep checking docker processes to make sure all machines are helthy
@@ -59,7 +59,7 @@ docker ps
 http://localhost:8080
 ```
 
-- Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection. 
+- ~~Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection.~~ 
 
         Update: Ignore this step as this has now been accommodated in the new docker compose yaml
 

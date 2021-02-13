@@ -23,6 +23,8 @@
 - [Data Engineering Projects](#projects)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
+- [Running the tests](#tests)
+- [Github Workflow](#githubworkflow)
 - [Built Using](#built_using)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
@@ -36,20 +38,23 @@ This contains service definitions for
 - airflow-scheduler
 - airflow-webserver
 - airflow-worker
-- airflow-init-db - To initialize db
-- airflow-init-user - To create airflow user.
+- airflow-init - To initialize db and create user
 - flower
 - redis
+- postgres - This is backend for airflow. I am also creating additional database `userdata` as a backend for my data flow. This is not recommended. Its ideal to have separate databases for airflow and your data.
 
-I had to split the `airflow-init` in the original yaml to two separate steps to make this successful in Windows 10 WSL2.
+I have added additional command to add a airflow db connection as part of the docker-compose
 
 Directories I am mounting:
 - ./dags
 - ./logs
 - ./plugins
 - ./sql - for Sql files. We can leveraje jinja templating in our queries. Refer the sample Dag.
+- ./test - Has Unit tests for Airflow Dags.
+- ./pg-init-scripts - This has scripts to create additional database in postgres.
 
 ## Data Engineering Projects <a name = "projects"></a>
+Here you will find some personal projects that I have worked on. These projects will throw light on some of the airflow features I have used and learnings related to other technologies. 
 - Project 1 -> [Get Covid testing data](./COVID_NY.md)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
@@ -59,7 +64,8 @@ These instructions will get you a copy of the project up and running on your loc
 Clone this repo to your machine
 
 ```
-docker-compose up --detach
+docker-compose -f docker-compose.yaml up airflow-init
+docker-compose -f docker-compose.yaml up
 ```
 
 ### Prerequisites
@@ -84,9 +90,9 @@ git clone
 Start docker build
 
 ```
-docker-compose up airflow-init
+docker-compose -f docker-compose.yaml up airflow-init
 
-docker-compose up --detached
+docker-compose -f docker-compose.yaml up
 ```
 
 Keep checking docker processes to make sure all machines are helthy
@@ -105,7 +111,19 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-This is #TODO
+Unit test for airflow dags has been defined and present in the `test` folder. This folder is also mapped to the docker containers inside the docker-compose.yaml file.
+Follow below steps to execute unittests after the docker containers are running:
+```
+./airflow bash
+python -m unittest discover -v
+```
+
+### Github Workflow for running tests <a name="githubworkflow"></a>
+I had to create another docker-compose to be able to execute unit tests whenever I push code to master. 
+Please refer
+- [Docker Compose for github workflow](./docker-compose-githubworkflow.yaml)
+- [Workflow Yaml file](./.github/workflows/main.yml)
+
 
 ### Break down into end to end tests
 
@@ -115,8 +133,8 @@ Another #TODO
 
 Now you can create new dags and place them in your local system and can see it coming live on web UI. Refer the sample dag in the repo. 
 
-  ### Important : 
-  Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection.
+  ### ~~Important~~ : 
+  ~~Edit the postgres_default connection from the UI or through command line if you want to persist data in postgres as part of the dags you create. Even better you can always add a new connection.~~
 
     Update: This is now taken care of the in the updated Docker compose file. The connection and the new database are created
 
