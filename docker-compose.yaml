@@ -55,6 +55,7 @@ x-airflow-common:
     _AIRFLOW_WWW_USER_CREATE: 'true'
     _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
     _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.basic_auth"
     #AIRFLOW__CORE__LOGGING_LEVEL: 'Debug'
   volumes:
     - ./dags:/opt/airflow/dags
@@ -121,24 +122,6 @@ services:
     command: celery worker
     container_name: airflow-worker
     restart: always
-
-  # airflow-init-db:
-  #   <<: *airflow-common
-  #   environment:
-  #     <<: *airflow-common-env
-  #     _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
-  #     _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
-  #   command: airflow db init
-  
-  # airflow-init-user:
-  #   <<: *airflow-common
-  #   depends_on: 
-  #     - airflow-init-db
-  #   environment:
-  #     <<: *airflow-common-env
-  #     _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
-  #     _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
-  #   command: airflow users create --role Admin --username ${_AIRFLOW_WWW_USER_USERNAME:-airflow} --password ${_AIRFLOW_WWW_USER_PASSWORD:-airflow} --email airflow@airflow.com --firstname airflow --lastname airflow
 
   airflow-init:
     <<: *airflow-common
