@@ -36,7 +36,6 @@ default@aca6f07e3e5b:/opt/airflow$ airflow dags backfill TEST_BACKFILL_DAG --sta
 
 Logs when the backfill tasks were erroing out:
 
-`
 airflow dags backfill TEST_BACKFILL_DAG --start-date 2021-02-11 --end-date 2021-02-19 --delay-on-limit 10 -v
 /home/airflow/.local/lib/python3.8/site-packages/airflow/cli/commands/dag_command.py:60 PendingDeprecationWarning: --ignore-first-depends-on-past is deprecated as the value is always set to True
 [2021-02-22 02:20:37,461] {dagbag.py:448} INFO - Filling up the DagBag from /opt/airflow/dags
@@ -91,4 +90,3 @@ TEST_BACKFILL_DAG  also_run_this  2021-02-17 00:00:00+00:00             1
 TEST_BACKFILL_DAG  also_run_this  2021-02-18 00:00:00+00:00             1
 TEST_BACKFILL_DAG  also_run_this  2021-02-19 00:00:00+00:00             1
 
-`
