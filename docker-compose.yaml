@@ -99,6 +99,15 @@ services:
       timeout: 30s
       retries: 50
     restart: always
+  
+  superset:
+    image: apache/incubator-superset:latest
+    # command:
+    #   - superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@superset.com --password admin
+    #   - superset db upgrade
+    #   - superset init
+    ports:
+      - 8090:8080
 
   airflow-webserver:
     <<: *airflow-common

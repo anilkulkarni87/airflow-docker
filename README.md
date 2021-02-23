@@ -21,6 +21,7 @@
 
 - [About](#about)
 - [Data Engineering Projects](#projects)
+- [Data Visualization](#superset)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Running the tests](#tests)
@@ -56,6 +57,9 @@ Directories I am mounting:
 ## Data Engineering Projects <a name = "projects"></a>
 Here you will find some personal projects that I have worked on. These projects will throw light on some of the airflow features I have used and learnings related to other technologies. 
 - Project 1 -> [Get Covid testing data](./COVID_NY.md)
+
+## Data Visualization <a name = "superset"></a>
+To experiment with Apache Superset. Read more [here](./SUPERSET.md)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -160,6 +164,7 @@ Now you can create new dags and place them in your local system and can see it c
 - [Redis](https://redis.io/) 
 - [Apache Airflow](https://airflow.apache.org/) 
 - [Docker](https://www.docker.com/) - build Tool
+- [Apache Superset](https://superset.apache.org/) - For Data visualization
 
 ## ✍️ Authors <a name = "authors"></a>
 
