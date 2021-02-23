@@ -79,6 +79,7 @@ Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.8/site-packages/airflow/jobs/backfill_job.py", line 811, in _execute
     raise BackfillUnfinished(err, ti_status)
 airflow.exceptions.BackfillUnfinished: Some task instances failed:
+```
 DAG ID             Task ID        Execution date               Try number
 -----------------  -------------  -------------------------  ------------
 TEST_BACKFILL_DAG  also_run_this  2021-02-11 00:00:00+00:00             1
@@ -89,4 +90,5 @@ TEST_BACKFILL_DAG  also_run_this  2021-02-16 00:00:00+00:00             1
 TEST_BACKFILL_DAG  also_run_this  2021-02-17 00:00:00+00:00             1
 TEST_BACKFILL_DAG  also_run_this  2021-02-18 00:00:00+00:00             1
 TEST_BACKFILL_DAG  also_run_this  2021-02-19 00:00:00+00:00             1
+```
 
