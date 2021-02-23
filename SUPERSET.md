@@ -1,6 +1,11 @@
 # Experiements with Apache Superset
 
 I have added Superset to the existing Airflow stack in Docker-compose and there i have been able to visualize the data thats been ingested via airflow DAGS. 
+Here is a simple chart that I created
+This chart provides the total tests done in Albany county per day and the new positives identified that day. 
+
+![covid-master-2021-02-23T01-43-21 230Z](https://user-images.githubusercontent.com/10644132/108793206-ddd05080-7537-11eb-9297-b4f761372982.jpg)
+
 
 ## Instructions to setup Superset
 
@@ -30,6 +35,7 @@ superset init
 postgresql://airflow:XXXXXXXXXX@postgres:5432/userdata
 ```
 
+![image](https://user-images.githubusercontent.com/10644132/108793463-6d75ff00-7538-11eb-8b23-c0c9ffa86358.png)
 
 ## TODO
 - Create a script for the above steps and automate user creation in superset
