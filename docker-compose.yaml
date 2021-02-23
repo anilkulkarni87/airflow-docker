@@ -55,6 +55,7 @@ x-airflow-common:
     _AIRFLOW_WWW_USER_CREATE: 'true'
     _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
     _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    #To enable stable rest api access
     AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.basic_auth"
     #AIRFLOW__CORE__LOGGING_LEVEL: 'Debug'
   volumes:
@@ -108,6 +109,18 @@ services:
     #   - superset init
     ports:
       - 8090:8080
+  
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    command: minio server /data
+    environment:
+      MINIO_ROOT_USER: "airflow123"
+      MINIO_ROOT_PASSWORD: "airflow123"
+    ports:
+      - 9000:9000
+    volumes:
+      - ./data:/data
 
   airflow-webserver:
     <<: *airflow-common
