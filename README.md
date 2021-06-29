@@ -17,6 +17,12 @@
     <br> 
 </p>
 
+#### Recent Updates:
+- Updated image to Airflow 2.1.1
+- Leveraging _PIP_ADDITIONAL_REQUIREMENTS to install additional dependencies
+- Developing and testing operators for Treasure Data
+- Read more at [Treasure Data](./TreasureData.md)
+
 ## 📝 Table of Contents
 
 - [About](#about)
