@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: create directories
-        run: mkdir ./logs ./plugins
+        run: mkdir ./logs
 
       - name: Remove .env file
         run: rm -f .env
