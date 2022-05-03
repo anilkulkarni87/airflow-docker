@@ -18,6 +18,12 @@
 </p>
 
 #### Recent Updates:
+03-May-2022
+- Added Dockerfile to extend airflow image
+- Adding additional Pypi package (td-client)
+- Updated to Airfloe 2.3.0
+
+89-Jun-2021
 - Updated image to Airflow 2.1.1
 - Leveraging _PIP_ADDITIONAL_REQUIREMENTS to install additional dependencies
 - Developing and testing operators for Treasure Data
@@ -100,6 +106,9 @@ git clone
 Start docker build
 
 ```
+#To extend airflow image
+docker-compose build
+
 docker-compose -f docker-compose.yaml up airflow-init
 
 docker-compose -f docker-compose.yaml up
