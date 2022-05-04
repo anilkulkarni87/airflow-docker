@@ -67,7 +67,7 @@ x-airflow-common:
     - ./plugins:/opt/airflow/plugins
     - ./sql:/opt/airflow/sql
     - ./test:/opt/airflow/test
-  user: "${AIRFLOW_UID}:${AIRFLOW_GID}"
+  user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
     redis:
@@ -257,8 +257,7 @@ services:
         mkdir -p /sources/logs /sources/dags /sources/plugins
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
         exec /entrypoint airflow version
-        bash -c "
-        airflow connections add 'postgres_new' --conn-uri 'postgres://airflow:airflow@postgres:5432/airflow'"
+      - exec /entrypoint airflow connections add 'postgres_new' --conn-uri 'postgres://airflow:airflow@postgres:5432/airflow'
     # yamllint enable rule:line-length
     environment:
       <<: *airflow-common-env

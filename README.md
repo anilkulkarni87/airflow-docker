@@ -120,11 +120,18 @@ Keep checking docker processes to make sure all machines are helthy
 docker ps
 ```
 
-Once you notice that all containers are healthy. Access Airflow UI
+Once you notice that all containers are healthy. 
+
+Add a connection to Postgres via command line and then Access Airflow UI
+
+```
+docker exec -it airflow-docker_airflow-worker airflow connections add 'postgres_new' --conn-uri 'postgres://airflow:airflow@postgres:5432/airflow'
+```
 
 ```
 http://localhost:8080
 ```
+
 
 End with an example of getting some data out of the system or using it for a little demo.
 
