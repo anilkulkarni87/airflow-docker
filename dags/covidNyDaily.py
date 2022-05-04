@@ -95,7 +95,9 @@ with DAG('LOAD_NY_COVID_DLY', default_args=default_args, catchup=False, template
         dataframe.rename(columns={"test_date": "testdate", "new_positives": "newpositives",
                                   "cumulative_number_of_positives": "cummpositives",
                                   "total_number_of_tests": "totaltests",
-                                  "cumulative_number_of_tests": "cummtests"}, inplace=True)
+                                  "cumulative_number_of_tests": "cummtests",
+                                  "test_positive":"testpositive",
+                                  "geography":"geography"}, inplace=True)
         # Loading data from dataframe to Postgres table
         dataframe.to_sql("nymaster", engine, index=False,
                          if_exists='append', schema='public')

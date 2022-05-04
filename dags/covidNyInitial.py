@@ -20,7 +20,7 @@ default_args = {
     'start_date': days_ago(1)
 }
 # The api that we need to call
-NY_API = "https://health.data.ny.gov/resource/xdss-u53e.json?$limit=50000&$order=:id"
+NY_API = "https://health.data.ny.gov/resource/xdss-u53e.json?$limit=100000&$order=:id"
 # Setting database name
 db_name = "userdata"
 # Using postgress Hook to get connection url and modifying it to have the right databasename
@@ -108,7 +108,9 @@ with DAG('NY_COVID_INITIAL_LD', schedule_interval='@once', default_args=default_
         # Changing column names to match with database table
         dataframe.rename(columns={"test_date": "testdate", "new_positives": "newpositives",
                                   "cumulative_number_of_positives": "cummpositives", "total_number_of_tests": "totaltests",
-                                  "cumulative_number_of_tests": "cummtests"}, inplace=True)
+                                  "cumulative_number_of_tests": "cummtests",
+                                  "test_positive":"testpositive",
+                                  "geography":"geography"}, inplace=True)
         # Loading data from dataframe to Postgres table
         dataframe.to_sql("nymaster", engine, index=False, if_exists='append')
 

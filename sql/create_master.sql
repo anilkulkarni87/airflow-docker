@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS public.nymaster (
 	cummpositives int4 NULL,
 	totaltests int4 NULL,
 	cummtests int4 NULL,
-	test_positive varchar(20) NULL,
+	testpositive varchar(20) NULL,
 	geography varchar(20) NULL,
 	loaddate date NULL
 );

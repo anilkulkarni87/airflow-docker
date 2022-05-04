@@ -117,12 +117,13 @@ services:
   minio:
     image: minio/minio:latest
     container_name: minio
-    command: minio server /data
+    command: minio server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: "airflow123"
       MINIO_ROOT_PASSWORD: "airflow123"
     ports:
       - 9000:9000
+      - 9001:9001
     volumes:
       - ./data:/data
 
