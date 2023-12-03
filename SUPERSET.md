@@ -12,7 +12,7 @@ This chart provides the total tests done in Albany county per day and the new po
 Once the instructions to start Airflow is complete, follow the below steps:
 - Connect to the superset container. 
 ```
-docker exec -it airflowdocker_superset_1 /bin/bash
+docker exec -it airflow-docker-superset-1 /bin/bash
 ```
 - Create user in superset
 ```
