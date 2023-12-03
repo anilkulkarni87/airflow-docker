@@ -36,6 +36,7 @@ postgresql://airflow:XXXXXXXXXX@host.docker.internal:5433/userdata
 ```
 When you create a connection the host should be : host.docker.internal
 
+![connect_details](https://github.com/anilkulkarni87/airflow-docker/assets/10644132/c9af3af1-2442-4fab-9946-7bdd15ea5ab5.png)
 ![image](https://user-images.githubusercontent.com/10644132/108793463-6d75ff00-7538-11eb-8b23-c0c9ffa86358.png)
 
 
