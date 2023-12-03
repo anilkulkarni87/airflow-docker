@@ -32,10 +32,12 @@ superset init
 
 - Add Database connection. Connection string would be as below:
 ```
-postgresql://airflow:XXXXXXXXXX@postgres:5432/userdata
+postgresql://airflow:XXXXXXXXXX@host.docker.internal:5433/userdata
 ```
+When you create a connection the host should be : host.docker.internal
 
 ![image](https://user-images.githubusercontent.com/10644132/108793463-6d75ff00-7538-11eb-8b23-c0c9ffa86358.png)
+
 
 ## TODO
 - Create a script for the above steps and automate user creation in superset
