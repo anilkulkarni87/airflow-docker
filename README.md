@@ -18,6 +18,12 @@
 </p>
 
 #### Recent Updates:
+03-Dec-2023
+- Upgrade to airflow 2.7.3
+- Upgraded superset to add secret key
+- Added superset database connection image
+- Works on M1 Mac
+
 03-May-2022
 - Added Dockerfile to extend airflow image
 - Adding additional Pypi package (td-client)
