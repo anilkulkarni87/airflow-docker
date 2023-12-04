@@ -5,13 +5,11 @@
 
 <h3 align="center">Airflow Made Easy | Local Setup Using Docker</h3>
 
-<div align="center">
+
 
 [![Execute Airflow Unit Tests](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/main.yml/badge.svg)](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/main.yml)
 
-</div>
-
----
+[![Deploy GitHub Pages](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/jekyll-gh-pages.yml)
 
 <p align="center"> This is my Apache Airflow Local development setup using docker-compose. It will also include some sample DAGs and workflows.
     <br> 
