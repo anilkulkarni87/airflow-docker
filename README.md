@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![Actions Status](https://github.com/anilkulkarni87/airflow-docker/workflows/Execute%20Airflow%20Unit%20Tests/badge.svg)](https://github.com/anilkulkarni87/airflow-docker/actions)
+[![Execute Airflow Unit Tests](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/main.yml/badge.svg)](https://github.com/anilkulkarni87/airflow-docker/actions/workflows/main.yml)
 
 </div>
 
