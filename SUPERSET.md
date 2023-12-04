@@ -12,7 +12,7 @@ This chart provides the total tests done in Albany county per day and the new po
 Once the instructions to start Airflow is complete, follow the below steps:
 - Connect to the superset container. 
 ```
-docker exec -it airflowdocker_superset_1 /bin/bash
+docker exec -it airflow-docker-superset-1 /bin/bash
 ```
 - Create user in superset
 ```
@@ -32,10 +32,13 @@ superset init
 
 - Add Database connection. Connection string would be as below:
 ```
-postgresql://airflow:XXXXXXXXXX@postgres:5432/userdata
+postgresql://airflow:XXXXXXXXXX@host.docker.internal:5433/userdata
 ```
+When you create a connection the host should be : host.docker.internal
 
+![connect_details](https://github.com/anilkulkarni87/airflow-docker/assets/10644132/c9af3af1-2442-4fab-9946-7bdd15ea5ab5.png)
 ![image](https://user-images.githubusercontent.com/10644132/108793463-6d75ff00-7538-11eb-8b23-c0c9ffa86358.png)
+
 
 ## TODO
 - Create a script for the above steps and automate user creation in superset
