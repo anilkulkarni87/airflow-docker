@@ -3,7 +3,7 @@
  <img width=100px height=100px src="https://cwiki.apache.org/confluence/download/attachments/145723561/airflow_white_bg.png?api=v2" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Apache Airflow 2.0 with Docker on Windows 10 | WSL2</h3>
+<h3 align="center">Airflow Made Easy | Local Setup Using Docker</h3>
 
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 ---
 
-<p align="center"> This is my Apache Airflow Local development setup on Windows 10 WSL2 using docker-compose. It will also include some sample DAGs and workflows.
+<p align="center"> This is my Apache Airflow Local development setup using docker-compose. It will also include some sample DAGs and workflows.
     <br> 
 </p>
 
